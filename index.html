@@ -170,7 +170,7 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
     <div><dt>Mail</dt><dd><a href="mailto:gio.saroldi@gmail.com">gio.saroldi@gmail.com</a></dd></div>
     <div><dt data-en="City">Città</dt><dd>Torino (IT)</dd></div>
   </dl>
-  <a class="cv" href="cv-giovanni-saroldi.pdf" download data-en="Download CV (PDF, in Italian)">Scarica il CV (PDF)</a>
+  <a class="cv" href="cv-giovanni-saroldi.pdf" download data-en="Download CV (PDF)">Scarica il CV (PDF)</a>
   <div class="photo"><img src="immagini/giovanni.webp" width="640" height="1093" alt="Ritratto di Giovanni Saroldi, sorridente, a braccia conserte" data-en-alt="Portrait of Giovanni Saroldi, smiling, arms crossed"></div>
 </aside>
 
@@ -205,6 +205,7 @@ function setLang(l) {
     if (!el.hasAttribute("data-it-alt")) el.setAttribute("data-it-alt", el.alt);
     el.alt = el.getAttribute(l === "en" ? "data-en-alt" : "data-it-alt");
   });
+  document.querySelector(".cv").href = l === "en" ? "cv-giovanni-saroldi-en.pdf" : "cv-giovanni-saroldi.pdf";
   document.querySelector('meta[name="description"]').content = l === "en" ? DESC_EN : T0.desc;
   document.title = l === "en" ? "Giovanni Saroldi – Portfolio" : T0.title;
   document.querySelectorAll(".lang button").forEach(function (b) {
