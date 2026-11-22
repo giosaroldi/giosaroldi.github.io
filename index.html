@@ -5,6 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Giovanni Saroldi – Portfolio</title>
 <meta name="description" content="Portfolio di Giovanni Saroldi, Multimedia Designer: cinque siti web progettati per TP srl.">
+<meta name="theme-color" content="#6b6764">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Giovanni Saroldi – Portfolio">
+<meta property="og:description" content="Portfolio di Giovanni Saroldi, Multimedia Designer: cinque siti web progettati per TP srl.">
+<meta property="og:url" content="https://giosaroldi.github.io/">
+<meta property="og:image" content="https://giosaroldi.github.io/immagini/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,700;1,400&family=Syne+Mono&family=Syne+Tactile&display=swap" rel="stylesheet">
@@ -21,7 +35,7 @@
 body{margin:0;font-family:"Source Sans 3","Source Sans Pro",sans-serif;font-size:1rem;line-height:1.45;color:var(--ink);background:#fff}
 a{color:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.tabs,.m-head{display:none}
+.tabs,.m-head,.tabs .lang{display:none}
 
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 380px}
 
@@ -38,10 +52,16 @@ main{display:flex;flex-direction:column;min-height:100vh}
 .card h2 a:focus-visible::after{outline:3px solid var(--ink);outline-offset:-3px}
 .tags{margin:0;padding:0;list-style:none}
 .tags li{display:inline-block;font-family:"Syne Mono",monospace;text-transform:uppercase;font-size:.68rem;letter-spacing:.04em;background:var(--yellow);padding:.08rem .4rem;margin:0 .25rem .25rem 0}
+.ctx{margin:.35rem 0 0;font-size:.9rem;color:#3a3836;max-width:22rem}
 .client{margin:.4rem 0 0;font-family:"Syne Mono",monospace;font-size:.78rem;border-left:4px solid var(--yellow);padding-left:.5rem}
 
 /* ---- Destra: colonna grigia come nel CV ---- */
 aside{background:var(--gray);color:#fff;padding:2.25rem 1.75rem 0;position:sticky;top:0;align-self:start;height:100vh;overflow:auto;display:flex;flex-direction:column}
+.lang{display:inline-flex;gap:.25rem;font-family:"Syne Mono",monospace;font-size:.8rem}
+.lang button{font:inherit;color:inherit;background:none;border:1px solid currentColor;padding:.1rem .45rem;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+.lang button:focus-visible{outline:3px solid currentColor;outline-offset:2px}
+.lang-d{align-self:flex-end;margin-bottom:.75rem}
 .first,.last{font-family:"Syne Tactile",cursive;font-size:2.9rem;line-height:1;display:block}
 .second{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 .75rem}
 .role{font-family:"Syne Mono",monospace;text-transform:uppercase;font-size:.95rem;letter-spacing:.04em}
@@ -50,7 +70,9 @@ aside{background:var(--gray);color:#fff;padding:2.25rem 1.75rem 0;position:stick
 .facts div{display:grid;grid-template-columns:4.5rem 1fr;gap:.5rem;padding:.45rem 0;border-top:1px solid rgba(255,255,255,.6)}
 .facts dt{font-family:"Syne Mono",monospace;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em;color:var(--yellow);padding-top:.15rem}
 .facts dd{margin:0;overflow-wrap:anywhere}
-.about{margin:1.25rem 0 0;padding-top:.9rem;border-top:1px solid rgba(255,255,255,.6);font-size:.95rem}
+.cv{align-self:flex-start;margin-top:1.25rem;font-family:"Syne Mono",monospace;font-size:.95rem;color:var(--ink);background:var(--yellow);padding:.55rem 1rem;text-decoration:none}
+.cv:hover{background:#fff}
+.cv:focus-visible{outline:3px solid #fff;outline-offset:2px}
 .photo{flex:1 1 0;min-height:14rem;margin-top:1rem}
 .photo img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom}
 aside a{text-decoration-color:var(--yellow);text-underline-offset:.15em}
@@ -60,7 +82,12 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
 /* ---- Mobile: due pagine, Portfolio e Info, con tab e swipe ---- */
 @media (max-width:860px){
   html,body{height:100%;overflow:hidden}
-  .tabs{display:grid;grid-template-columns:1fr 1fr;height:var(--tabs-h);border-bottom:2px solid var(--rule);background:#fff}
+  .lang-d{display:none}
+  .tabs .lang{align-self:center;margin:0 .6rem;color:var(--ink)}
+  .tabs .lang button{font-size:.8rem;border:1px solid var(--ink);padding:.1rem .45rem}
+  .tabs .lang button[aria-pressed="true"]{border-color:var(--ink)}
+  .tabs .lang{display:inline-flex}
+  .tabs{display:grid;grid-template-columns:1fr 1fr auto;height:var(--tabs-h);border-bottom:2px solid var(--rule);background:#fff}
   .tabs button{font:inherit;font-family:"Syne Mono",monospace;font-size:1rem;color:var(--ink);background:none;border:0;cursor:pointer}
   .tabs button[aria-current="true"]{background:var(--yellow)}
   .tabs button:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
@@ -70,7 +97,8 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
   main{display:block;min-height:0}
   .m-head{display:block;padding:1.25rem 1.25rem .5rem;font-family:"Syne Tactile",cursive;font-size:2.2rem;line-height:1;margin:0}
   .card{display:block;padding:1.25rem}
-  .card h2{font-size:2rem;margin-bottom:.6rem}
+  .card h2{font-size:2rem}
+  .card .tags{margin-top:.8rem}
   aside{position:static;align-self:stretch;padding:1.75rem 1.25rem 0}
   .photo{min-height:12rem}
 }
@@ -82,6 +110,7 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
 <nav class="tabs" aria-label="Sezioni">
   <button type="button" aria-current="true">Portfolio</button>
   <button type="button">Info</button>
+  <span class="lang" role="group" aria-label="Lingua / Language"><button type="button" data-lang="it" aria-pressed="true">IT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></span>
 </nav>
 
 <div class="layout">
@@ -90,47 +119,48 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
   <p class="m-head" aria-hidden="true">Giovanni Saroldi</p>
   <!-- Ogni card: dominio, titolo (link al sito) e tag. Le card si dividono l’altezza dello schermo. -->
   <article class="card" id="sito-1">
-    <div><p class="meta">cepirack.com</p><h2><a href="https://cepirack.com/" target="_blank" rel="noopener">Cepirack</a></h2></div>
+    <div><p class="meta">cepirack.com</p><h2><a href="https://cepirack.com/" target="_blank" rel="noopener">C.E.P.I. Rack</a></h2><p class="ctx" data-en="Mechanical solutions for electronic systems: custom 19” racks.">Soluzioni meccaniche per sistemi elettronici: rack 19” personalizzati.</p></div>
     <div>
-      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li>Editing fotografico</li><li>Graphic design</li><li>Sviluppo</li></ul>
-      <p class="client">Lavoro realizzato per TP srl</p>
+      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li data-en="Photo editing">Editing fotografico</li><li>Graphic design</li><li data-en="Development">Sviluppo</li></ul>
+      <p class="client" data-en="Work done for TP srl">Lavoro realizzato per TP srl</p>
     </div>
   </article>
 
   <article class="card" id="sito-2">
-    <div><p class="meta">kb-puricelli.com</p><h2><a href="https://kb-puricelli.com/" target="_blank" rel="noopener">KB Puricelli</a></h2></div>
+    <div><p class="meta">kb-puricelli.com</p><h2><a href="https://kb-puricelli.com/" target="_blank" rel="noopener">Kitchen &amp; Bath by Puricelli</a></h2><p class="ctx" data-en="Puricelli’s collection of decorative surfaces for kitchens and bathrooms.">La collezione Puricelli di superfici decorative per cucina e bagno.</p></div>
     <div>
-      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li>Editing fotografico</li><li>Selezione fotografica</li></ul>
-      <p class="client">Lavoro realizzato per TP srl</p>
+      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li data-en="Photo editing">Editing fotografico</li><li data-en="Photo selection">Selezione fotografica</li></ul>
+      <p class="client" data-en="Work done for TP srl">Lavoro realizzato per TP srl</p>
     </div>
   </article>
 
   <article class="card" id="sito-3">
-    <div><p class="meta">gustiditalia.bio</p><h2><a href="https://gustiditalia.bio/" target="_blank" rel="noopener">Gusti d’Italia</a></h2></div>
+    <div><p class="meta">gustiditalia.bio</p><h2><a href="https://gustiditalia.bio/" target="_blank" rel="noopener">Gusti d’Italia Bio</a></h2><p class="ctx" data-en="A line of Italian organic food and beverages.">Linea di prodotti alimentari e bevande biologici italiani.</p></div>
     <div>
-      <ul class="tags"><li>UX</li><li>UI</li><li>Motion design</li><li>Editing fotografico</li><li>Graphic design</li></ul>
-      <p class="client">Lavoro realizzato per TP srl</p>
+      <ul class="tags"><li>UX</li><li>UI</li><li>Motion design</li><li data-en="Photo editing">Editing fotografico</li><li>Graphic design</li></ul>
+      <p class="client" data-en="Work done for TP srl">Lavoro realizzato per TP srl</p>
     </div>
   </article>
 
   <article class="card" id="sito-4">
-    <div><p class="meta">datasis.it</p><h2><a href="https://www.datasis.it/" target="_blank" rel="noopener">Datasis</a></h2></div>
+    <div><p class="meta">datasis.it</p><h2><a href="https://www.datasis.it/" target="_blank" rel="noopener">Datasis</a></h2><p class="ctx" data-en="Business process automation: from documents to structured data.">Automazione dei processi aziendali: dai documenti a dati strutturati.</p></div>
     <div>
-      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li>Editing fotografico</li><li>Graphic design</li><li>Sviluppo</li><li>Piano editoriale</li><li>Editing SEO</li></ul>
-      <p class="client">Lavoro realizzato per TP srl</p>
+      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li data-en="Photo editing">Editing fotografico</li><li>Graphic design</li><li data-en="Development">Sviluppo</li><li data-en="Editorial plan">Piano editoriale</li><li data-en="SEO editing">Editing SEO</li></ul>
+      <p class="client" data-en="Work done for TP srl">Lavoro realizzato per TP srl</p>
     </div>
   </article>
 
   <article class="card" id="sito-5">
-    <div><p class="meta">aurive.it</p><h2><a href="https://www.aurive.it/" target="_blank" rel="noopener">Aurive</a></h2></div>
+    <div><p class="meta">aurive.it</p><h2><a href="https://www.aurive.it/" target="_blank" rel="noopener">Aurive</a></h2><p class="ctx" data-en="Social enterprise cooperative: employment, civic service and project design.">Cooperativa impresa sociale: lavoro, servizio civile e progettazione.</p></div>
     <div>
-      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li>Editing fotografico</li><li>Selezione fotografica</li><li>Illustrazione</li><li>Identità visiva</li><li>Sviluppo</li><li>Piano editoriale</li><li>Editing SEO</li></ul>
-      <p class="client">Lavoro realizzato per TP srl</p>
+      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li data-en="Photo editing">Editing fotografico</li><li data-en="Photo selection">Selezione fotografica</li><li data-en="Illustration">Illustrazione</li><li data-en="Visual identity">Identità visiva</li><li data-en="Development">Sviluppo</li><li data-en="Editorial plan">Piano editoriale</li><li data-en="SEO editing">Editing SEO</li></ul>
+      <p class="client" data-en="Work done for TP srl">Lavoro realizzato per TP srl</p>
     </div>
   </article>
 </main>
 
 <aside>
+  <span class="lang lang-d" role="group" aria-label="Lingua / Language"><button type="button" data-lang="it" aria-pressed="true">IT</button><button type="button" data-lang="en" aria-pressed="false">EN</button></span>
   <div>
     <span class="first">Giovanni</span>
     <div class="second"><span class="role">Human design</span><span class="last">Saroldi</span></div>
@@ -138,10 +168,10 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
   </div>
   <dl class="facts">
     <div><dt>Mail</dt><dd><a href="mailto:gio.saroldi@gmail.com">gio.saroldi@gmail.com</a></dd></div>
-    <div><dt>Città</dt><dd>Torino (IT)</dd></div>
+    <div><dt data-en="City">Città</dt><dd>Torino (IT)</dd></div>
   </dl>
-  <p class="about">Nei miei anni in TP ho affiancato oltre 50 clienti con un unico obiettivo: capire il contesto per fare la differenza tra <em>“dire”</em> e <em>“comunicare”</em>.</p>
-  <div class="photo"><img src="immagini/giovanni.webp" width="640" height="1093" alt="Ritratto di Giovanni Saroldi, sorridente, a braccia conserte"></div>
+  <a class="cv" href="cv-giovanni-saroldi.pdf" download data-en="Download CV (PDF, in Italian)">Scarica il CV (PDF)</a>
+  <div class="photo"><img src="immagini/giovanni.webp" width="640" height="1093" alt="Ritratto di Giovanni Saroldi, sorridente, a braccia conserte" data-en-alt="Portrait of Giovanni Saroldi, smiling, arms crossed"></div>
 </aside>
 
 </div>
@@ -162,6 +192,33 @@ layout.addEventListener("scroll", function () {
     if (j === i) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current");
   });
 }, { passive: true });
+// Lingua: italiano di base; inglese se il browser non è in italiano o se lo scegli tu.
+var T0 = { title: document.title, desc: document.querySelector('meta[name="description"]').content };
+var DESC_EN = "Portfolio of Giovanni Saroldi, Multimedia Designer: five websites designed for TP srl.";
+function setLang(l) {
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-en]").forEach(function (el) {
+    if (!el.hasAttribute("data-it")) el.setAttribute("data-it", el.textContent);
+    el.textContent = el.getAttribute(l === "en" ? "data-en" : "data-it");
+  });
+  document.querySelectorAll("[data-en-alt]").forEach(function (el) {
+    if (!el.hasAttribute("data-it-alt")) el.setAttribute("data-it-alt", el.alt);
+    el.alt = el.getAttribute(l === "en" ? "data-en-alt" : "data-it-alt");
+  });
+  document.querySelector('meta[name="description"]').content = l === "en" ? DESC_EN : T0.desc;
+  document.title = l === "en" ? "Giovanni Saroldi – Portfolio" : T0.title;
+  document.querySelectorAll(".lang button").forEach(function (b) {
+    b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === l));
+  });
+  try { localStorage.setItem("lang", l); } catch (e) {}
+}
+document.querySelectorAll(".lang button").forEach(function (b) {
+  b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
+});
+var saved = null;
+try { saved = localStorage.getItem("lang"); } catch (e) {}
+var first = saved || ((navigator.language || "it").toLowerCase().indexOf("it") === 0 ? "it" : "en");
+if (first === "en") setLang("en");
 </script>
 </body>
 </html>
