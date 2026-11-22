@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giovanni Saroldi – Portfolio</title>
+<meta name="description" content="Portfolio di Giovanni Saroldi, Multimedia Designer: cinque siti web progettati per TP srl.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,700;1,400&family=Syne+Mono&family=Syne+Tactile&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gray:#6b6764;      /* colonna laterale del CV */
+  --yellow:#f6d44d;    /* evidenziatore dei tag */
+  --paper:#ecebe4;     /* riquadro beige del CV */
+  --ink:#1f1e1d;
+  --rule:#8a8683;
+  --tabs-h:3rem;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Source Sans 3","Source Sans Pro",sans-serif;font-size:1rem;line-height:1.45;color:var(--ink);background:#fff}
+a{color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tabs,.m-head{display:none}
+
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 380px}
+
+/* ---- Sinistra: cinque card che si dividono 100vh ---- */
+main{display:flex;flex-direction:column;min-height:100vh}
+.card{position:relative;flex:1 1 0;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:0 2rem;align-items:center;padding:.9rem clamp(1.25rem,4vw,3rem);border-bottom:2px solid var(--rule)}
+.card:last-child{border-bottom:0}
+.card:hover{background:var(--paper)}
+.meta{font-family:"Syne Mono",monospace;font-size:.78rem;letter-spacing:.04em;color:#4a4745;margin:0}
+.card h2{font-family:"Syne Tactile",cursive;font-weight:400;font-size:clamp(1.5rem,4.2vh,2.5rem);line-height:1.05;margin:.1rem 0 0}
+.card h2 a{text-decoration:none}
+.card h2 a::after{content:"";position:absolute;inset:0}
+.card h2 a:focus-visible{outline:none}
+.card h2 a:focus-visible::after{outline:3px solid var(--ink);outline-offset:-3px}
+.tags{margin:0;padding:0;list-style:none}
+.tags li{display:inline-block;font-family:"Syne Mono",monospace;text-transform:uppercase;font-size:.68rem;letter-spacing:.04em;background:var(--yellow);padding:.08rem .4rem;margin:0 .25rem .25rem 0}
+.client{margin:.4rem 0 0;font-family:"Syne Mono",monospace;font-size:.78rem;border-left:4px solid var(--yellow);padding-left:.5rem}
+
+/* ---- Destra: colonna grigia come nel CV ---- */
+aside{background:var(--gray);color:#fff;padding:2.25rem 1.75rem 0;position:sticky;top:0;align-self:start;height:100vh;overflow:auto;display:flex;flex-direction:column}
+.first,.last{font-family:"Syne Tactile",cursive;font-size:2.9rem;line-height:1;display:block}
+.second{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:0 .75rem}
+.role{font-family:"Syne Mono",monospace;text-transform:uppercase;font-size:.95rem;letter-spacing:.04em}
+.role-b{text-align:right;margin:.25rem 0 0}
+.facts{margin:1.75rem 0 0;font-size:.95rem}
+.facts div{display:grid;grid-template-columns:4.5rem 1fr;gap:.5rem;padding:.45rem 0;border-top:1px solid rgba(255,255,255,.6)}
+.facts dt{font-family:"Syne Mono",monospace;text-transform:uppercase;font-size:.7rem;letter-spacing:.05em;color:var(--yellow);padding-top:.15rem}
+.facts dd{margin:0;overflow-wrap:anywhere}
+.about{margin:1.25rem 0 0;padding-top:.9rem;border-top:1px solid rgba(255,255,255,.6);font-size:.95rem}
+.photo{flex:1 1 0;min-height:14rem;margin-top:1rem}
+.photo img{display:block;width:100%;height:100%;object-fit:contain;object-position:center bottom}
+aside a{text-decoration-color:var(--yellow);text-underline-offset:.15em}
+aside a:hover{background:var(--yellow);color:var(--ink);text-decoration:none}
+aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
+
+/* ---- Mobile: due pagine, Portfolio e Info, con tab e swipe ---- */
+@media (max-width:860px){
+  html,body{height:100%;overflow:hidden}
+  .tabs{display:grid;grid-template-columns:1fr 1fr;height:var(--tabs-h);border-bottom:2px solid var(--rule);background:#fff}
+  .tabs button{font:inherit;font-family:"Syne Mono",monospace;font-size:1rem;color:var(--ink);background:none;border:0;cursor:pointer}
+  .tabs button[aria-current="true"]{background:var(--yellow)}
+  .tabs button:focus-visible{outline:3px solid var(--ink);outline-offset:-3px}
+  .layout{display:flex;height:calc(100vh - var(--tabs-h));height:calc(100dvh - var(--tabs-h));overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none}
+  .layout::-webkit-scrollbar{display:none}
+  .layout>*{flex:0 0 100%;height:100%;overflow-y:auto;scroll-snap-align:start;scroll-snap-stop:always}
+  main{display:block;min-height:0}
+  .m-head{display:block;padding:1.25rem 1.25rem .5rem;font-family:"Syne Tactile",cursive;font-size:2.2rem;line-height:1;margin:0}
+  .card{display:block;padding:1.25rem}
+  .card h2{font-size:2rem;margin-bottom:.6rem}
+  aside{position:static;align-self:stretch;padding:1.75rem 1.25rem 0}
+  .photo{min-height:12rem}
+}
+</style>
+</head>
+<body>
+<h1 class="sr">Giovanni Saroldi, portfolio</h1>
+
+<nav class="tabs" aria-label="Sezioni">
+  <button type="button" aria-current="true">Portfolio</button>
+  <button type="button">Info</button>
+</nav>
+
+<div class="layout">
+
+<main>
+  <p class="m-head" aria-hidden="true">Giovanni Saroldi</p>
+  <!-- Ogni card: dominio, titolo (link al sito) e tag. Le card si dividono l’altezza dello schermo. -->
+  <article class="card" id="sito-1">
+    <div><p class="meta">cepirack.com</p><h2><a href="https://cepirack.com/" target="_blank" rel="noopener">Cepirack</a></h2></div>
+    <div>
+      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li>Editing fotografico</li><li>Graphic design</li><li>Sviluppo</li></ul>
+      <p class="client">Lavoro realizzato per TP srl</p>
+    </div>
+  </article>
+
+  <article class="card" id="sito-2">
+    <div><p class="meta">kb-puricelli.com</p><h2><a href="https://kb-puricelli.com/" target="_blank" rel="noopener">KB Puricelli</a></h2></div>
+    <div>
+      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li>Editing fotografico</li><li>Selezione fotografica</li></ul>
+      <p class="client">Lavoro realizzato per TP srl</p>
+    </div>
+  </article>
+
+  <article class="card" id="sito-3">
+    <div><p class="meta">gustiditalia.bio</p><h2><a href="https://gustiditalia.bio/" target="_blank" rel="noopener">Gusti d’Italia</a></h2></div>
+    <div>
+      <ul class="tags"><li>UX</li><li>UI</li><li>Motion design</li><li>Editing fotografico</li><li>Graphic design</li></ul>
+      <p class="client">Lavoro realizzato per TP srl</p>
+    </div>
+  </article>
+
+  <article class="card" id="sito-4">
+    <div><p class="meta">datasis.it</p><h2><a href="https://www.datasis.it/" target="_blank" rel="noopener">Datasis</a></h2></div>
+    <div>
+      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li>Editing fotografico</li><li>Graphic design</li><li>Sviluppo</li><li>Piano editoriale</li><li>Editing SEO</li></ul>
+      <p class="client">Lavoro realizzato per TP srl</p>
+    </div>
+  </article>
+
+  <article class="card" id="sito-5">
+    <div><p class="meta">aurive.it</p><h2><a href="https://www.aurive.it/" target="_blank" rel="noopener">Aurive</a></h2></div>
+    <div>
+      <ul class="tags"><li>UX</li><li>UI</li><li>Art direction</li><li>Editing fotografico</li><li>Selezione fotografica</li><li>Illustrazione</li><li>Identità visiva</li><li>Sviluppo</li><li>Piano editoriale</li><li>Editing SEO</li></ul>
+      <p class="client">Lavoro realizzato per TP srl</p>
+    </div>
+  </article>
+</main>
+
+<aside>
+  <div>
+    <span class="first">Giovanni</span>
+    <div class="second"><span class="role">Human design</span><span class="last">Saroldi</span></div>
+    <p class="role role-b">Creative communication</p>
+  </div>
+  <dl class="facts">
+    <div><dt>Mail</dt><dd><a href="mailto:gio.saroldi@gmail.com">gio.saroldi@gmail.com</a></dd></div>
+    <div><dt>Città</dt><dd>Torino (IT)</dd></div>
+  </dl>
+  <p class="about">Nei miei anni in TP ho affiancato oltre 50 clienti con un unico obiettivo: capire il contesto per fare la differenza tra <em>“dire”</em> e <em>“comunicare”</em>.</p>
+  <div class="photo"><img src="immagini/giovanni.webp" width="640" height="1093" alt="Ritratto di Giovanni Saroldi, sorridente, a braccia conserte"></div>
+</aside>
+
+</div>
+
+<script>
+// Mobile: i due pannelli sono affiancati e si scorre con lo swipe; i tab restano sincronizzati.
+var layout = document.querySelector(".layout");
+var tabs = Array.prototype.slice.call(document.querySelectorAll(".tabs button"));
+var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+tabs.forEach(function (b, i) {
+  b.addEventListener("click", function () {
+    layout.scrollTo({ left: i * layout.clientWidth, behavior: calm ? "auto" : "smooth" });
+  });
+});
+layout.addEventListener("scroll", function () {
+  var i = Math.round(layout.scrollLeft / layout.clientWidth);
+  tabs.forEach(function (b, j) {
+    if (j === i) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current");
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
