@@ -36,7 +36,7 @@
 body{margin:0;font-family:"Source Sans 3","Source Sans Pro",sans-serif;font-size:1rem;line-height:1.45;color:var(--ink);background:#fff}
 a{color:inherit}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.tabs,.m-head,.tabs .lang{display:none}
+.tabs,.tabs .lang{display:none}
 
 #intro{position:fixed;inset:0;z-index:50;background:var(--yellow);color:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:clamp(1.5rem,6vw,5rem);transition:transform .7s cubic-bezier(.7,0,.2,1);cursor:pointer}
 .seen #intro{display:none}
@@ -110,9 +110,8 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
   .layout{display:flex;height:calc(100vh - var(--tabs-h));height:calc(100dvh - var(--tabs-h));overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none}
   .layout::-webkit-scrollbar{display:none}
   .layout>*{flex:0 0 100%;height:100%;overflow-y:auto;scroll-snap-align:start;scroll-snap-stop:always}
-  main{display:block;min-height:0}
-  .m-head{display:block;padding:1.25rem 1.25rem .5rem;font-family:"Syne Tactile",cursive;font-size:2.2rem;line-height:1;margin:0}
-  .card{display:block;padding:1.25rem}
+  main{display:flex;flex-direction:column;min-height:0}
+  .card{display:flex;flex-direction:column;justify-content:center;align-items:stretch;flex:1 0 auto;gap:.2rem;padding:1.25rem}
   .card h2{font-size:1.6rem}
   .card .tags{margin-top:.8rem}
   aside{position:static;align-self:stretch}
@@ -139,7 +138,6 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
 <div class="layout">
 
 <main>
-  <p class="m-head" aria-hidden="true">Giovanni Saroldi</p>
   <!-- Ogni card: dominio, titolo (link al sito) e tag. Le card si dividono l’altezza dello schermo. -->
   <article class="card" id="sito-1" data-preview="immagini/anteprime/cepirack">
     <div><p class="meta">cepirack.com</p><h2><a href="https://cepirack.com/" target="_blank" rel="noopener"><b>C.E.P.I.</b> Rack</a></h2></div>
