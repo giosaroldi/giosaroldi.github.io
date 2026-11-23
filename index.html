@@ -47,7 +47,7 @@ a{color:inherit}
 .enter{align-self:flex-start;margin-top:2.5rem;font-family:"Syne Mono",monospace;font-size:1rem;background:var(--ink);color:var(--yellow);border:0;padding:.7rem 1.4rem;cursor:pointer}
 .enter:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
 @media (prefers-reduced-motion:reduce){#intro{transition:none}}
-#peek{position:fixed;left:0;top:0;width:360px;height:225px;z-index:20;pointer-events:none;opacity:0;transition:opacity .15s;border:2px solid var(--ink);background:var(--paper);box-shadow:6px 6px 0 var(--yellow)}
+#peek{position:fixed;left:0;top:0;width:360px;height:185px;z-index:20;pointer-events:none;opacity:0;transition:opacity .15s;border:2px solid var(--ink);background:var(--paper);box-shadow:6px 6px 0 var(--yellow)}
 #peek.on{opacity:1}
 #peek img{display:block;width:100%;height:100%;object-fit:cover}
 @media (hover:none),(max-width:860px){#peek{display:none}}
@@ -141,7 +141,7 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
 <main>
   <p class="m-head" aria-hidden="true">Giovanni Saroldi</p>
   <!-- Ogni card: dominio, titolo (link al sito) e tag. Le card si dividono l’altezza dello schermo. -->
-  <article class="card" id="sito-1" data-preview="immagini/anteprime/cepirack.jpg">
+  <article class="card" id="sito-1" data-preview="immagini/anteprime/cepirack">
     <div><p class="meta">cepirack.com</p><h2><a href="https://cepirack.com/" target="_blank" rel="noopener"><b>C.E.P.I.</b> Rack</a></h2></div>
     <div>
       <ul class="tags"><li>UX/UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li data-en="Photo editing">Editing fotografico</li><li>Graphic design</li><li data-en="Development">Sviluppo</li></ul>
@@ -149,7 +149,7 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
     </div>
   </article>
 
-  <article class="card" id="sito-2" data-preview="immagini/anteprime/kb-puricelli.jpg">
+  <article class="card" id="sito-2" data-preview="immagini/anteprime/kb-puricelli">
     <div><p class="meta">kb-puricelli.com</p><h2><a href="https://kb-puricelli.com/" target="_blank" rel="noopener"><b>Kitchen &amp; Bath</b> by Puricelli</a></h2></div>
     <div>
       <ul class="tags"><li>UX/UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li data-en="Photo editing and selection">Editing e selezione fotografica</li></ul>
@@ -157,7 +157,7 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
     </div>
   </article>
 
-  <article class="card" id="sito-3" data-preview="immagini/anteprime/gustiditalia.jpg">
+  <article class="card" id="sito-3" data-preview="immagini/anteprime/gustiditalia">
     <div><p class="meta">gustiditalia.bio</p><h2><a href="https://gustiditalia.bio/" target="_blank" rel="noopener"><b>Gusti d’Italia</b> Bio</a></h2></div>
     <div>
       <ul class="tags"><li>UX/UI</li><li>Motion design</li><li data-en="Photo editing">Editing fotografico</li><li>Graphic design</li></ul>
@@ -165,7 +165,7 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
     </div>
   </article>
 
-  <article class="card" id="sito-4" data-preview="immagini/anteprime/datasis.jpg">
+  <article class="card" id="sito-4" data-preview="immagini/anteprime/datasis">
     <div><p class="meta">datasis.it</p><h2><a href="https://www.datasis.it/" target="_blank" rel="noopener"><b>Datasis</b></a></h2></div>
     <div>
       <ul class="tags"><li>UX/UI</li><li>Art direction</li><li>Interaction design</li><li>Motion design</li><li data-en="Photo editing">Editing fotografico</li><li>Graphic design</li><li data-en="Development">Sviluppo</li><li data-en="Editorial plan">Piano editoriale</li><li data-en="SEO editing">Editing SEO</li></ul>
@@ -173,7 +173,7 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
     </div>
   </article>
 
-  <article class="card" id="sito-5" data-preview="immagini/anteprime/aurive.jpg">
+  <article class="card" id="sito-5" data-preview="immagini/anteprime/aurive">
     <div><p class="meta">aurive.it</p><h2><a href="https://www.aurive.it/" target="_blank" rel="noopener"><b>Aurive</b></a></h2></div>
     <div>
       <ul class="tags"><li>UX/UI</li><li>Art direction</li><li data-en="Photo editing and selection">Editing e selezione fotografica</li><li data-en="Illustration">Illustrazione</li><li data-en="Visual identity">Identità visiva</li><li data-en="Development">Sviluppo</li><li data-en="Editorial plan">Piano editoriale</li><li data-en="SEO editing">Editing SEO</li></ul>
@@ -202,7 +202,7 @@ aside a:focus-visible{outline:3px solid #fff;outline-offset:2px}
 
 </div>
 
-<div id="peek" aria-hidden="true"><img alt="" width="360" height="225"></div>
+<div id="peek" aria-hidden="true"><img alt="" width="360" height="185"></div>
 
 <script>
 // Mobile: i due pannelli sono affiancati e si scorre con lo swipe; i tab restano sincronizzati.
@@ -270,21 +270,38 @@ intro.addEventListener("touchmove", function (e) { if (y0 !== null && y0 - e.tou
 document.addEventListener("keydown", function (e) {
   if (!intro.classList.contains("out") && ["ArrowDown", "PageDown", " ", "Enter", "Escape"].indexOf(e.key) > -1) { e.preventDefault(); leave(); }
 });
-// Anteprima dei siti al passaggio del mouse (solo desktop): compare solo se il file esiste.
+// Anteprima dei siti al passaggio del mouse (solo desktop; compare se il file esiste).
+// Cerca immagini/anteprime/<nome>.jpg, .webp, .png o .jpeg (anche in maiuscolo).
+var peek = document.getElementById("peek"), pimg = peek.querySelector("img");
+var EXT = ["jpg", "webp", "png", "jpeg", "JPG", "WEBP", "PNG", "JPEG"], found = {}, current = null;
+function findPreview(base, cb) {
+  if (base in found) return cb(found[base]);
+  var i = 0;
+  (function next() {
+    if (i >= EXT.length) { found[base] = false; console.warn("Anteprima non trovata: " + base); return cb(false); }
+    var url = base + "." + EXT[i++], t = new Image();
+    t.onload = function () { found[base] = url; cb(url); };
+    t.onerror = next;
+    t.src = url;
+  })();
+}
 if (window.matchMedia("(hover: hover) and (pointer: fine) and (min-width: 861px)").matches) {
-  var peek = document.getElementById("peek"), pimg = peek.querySelector("img"), bad = {};
-  pimg.addEventListener("load", function () { peek.classList.add("on"); });
-  pimg.addEventListener("error", function () { bad[pimg.getAttribute("src")] = true; peek.classList.remove("on"); });
-  document.querySelectorAll(".card[data-preview]").forEach(function (c) {
-    var src = c.getAttribute("data-preview");
+  var cards = document.querySelectorAll(".card[data-preview]");
+  cards.forEach(function (c) { findPreview(c.getAttribute("data-preview"), function () {}); });
+  cards.forEach(function (c) {
     c.addEventListener("mouseenter", function () {
+      var base = c.getAttribute("data-preview");
+      current = base;
       peek.classList.remove("on");
-      if (bad[src]) return;
-      if (pimg.getAttribute("src") === src) peek.classList.add("on"); else pimg.src = src;
+      findPreview(base, function (url) {
+        if (!url || current !== base) return;
+        if (pimg.getAttribute("src") !== url) pimg.src = url;
+        peek.classList.add("on");
+      });
     });
-    c.addEventListener("mouseleave", function () { peek.classList.remove("on"); });
+    c.addEventListener("mouseleave", function () { current = null; peek.classList.remove("on"); });
     c.addEventListener("mousemove", function (e) {
-      var x = Math.min(e.clientX + 28, innerWidth - 380), y = Math.min(Math.max(e.clientY - 112, 12), innerHeight - 240);
+      var x = Math.min(e.clientX + 28, innerWidth - 380), y = Math.min(Math.max(e.clientY - 92, 12), innerHeight - 205);
       peek.style.transform = "translate(" + x + "px," + y + "px)";
     });
   });
